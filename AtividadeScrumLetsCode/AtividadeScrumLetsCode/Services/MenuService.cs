@@ -35,15 +35,17 @@ namespace AtividadeScrumLetsCode.Services
                 //    break;
 
                 case "0":
-                    return;
+                    Environment.Exit(0);
+                    break;
 
                 default:
-                    Console.Clear();
-                    Console.WriteLine("Opção invalida, tente novamente...\n");
+                    Console.WriteLine("\nOpção invalida, tente novamente...\n");
                     Thread.Sleep(2000);
                     Iniciar();
                     break;
             }
+
+            
         }
     }
 }

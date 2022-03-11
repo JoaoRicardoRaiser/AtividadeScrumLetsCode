@@ -20,27 +20,47 @@ namespace AtividadeScrumLetsCode.Services
 
         public void CadastrarPlayer()
         {
-            Console.Write("Nickname: ");
-            var nick = Console.ReadLine();
-            
-            // Transferir a responsabilidade de validar para a entidade.
-            while (!EhNickValido(nick))
+            try
             {
+                Console.Clear();
+                Console.WriteLine("Cadastro de Player\n");
                 Console.Write("Nickname: ");
-                nick = Console.ReadLine();
+                var nick = Console.ReadLine();
+
+                while (!EhNickValido(nick))
+                {
+                    Console.Write("Nickname: ");
+                    nick = Console.ReadLine();
+                }
+
+                var player = new Player(nick);
+
+                Console.Write("Quer adicionar algum jogo de interesse? (s/n) bobão: ");
+                var deveAdicionarGame = Console.ReadLine();
+
+                if (deveAdicionarGame.Equals("s", StringComparison.InvariantCultureIgnoreCase))
+                    AdicionarGames(player);
+
+                _playerRepository.Create(player);
+                Console.Clear();
+                Console.WriteLine($"Player com nome: '{player.Nickname}' criado com sucesso!");
+                Thread.Sleep(2000);
+                
             }
-
-            var player = new Player(nick);
-
-            Console.Write("Quer adicionar algum jogo de interesse? (s/n) bobão: ");
-            var deveAdicionarGame = Console.ReadLine();
+            catch(Exception e)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                
+                Console.Clear();
+                Console.WriteLine($"\nOcorreu um erro ao cadastrar player...\n{e}\n");
+                Console.WriteLine($"Nenhuma mudança será realizada na base de dados.\n");
+                Console.ResetColor();
+                
+                Console.WriteLine($"Aperte qualquer botão para continuar...");
+                Console.Read();
+                
+            }
             
-            if (deveAdicionarGame.Equals("s", StringComparison.InvariantCultureIgnoreCase))
-                AdicionarGames(player);
-
-
-            _playerRepository.Create(player);
-
             MenuService.Iniciar();
         }
 
@@ -50,6 +70,7 @@ namespace AtividadeScrumLetsCode.Services
             {
                 Console.WriteLine("Nickname não pode ser vazio bobão...");
                 Thread.Sleep(2000);
+                Console.Clear();
                 return false;
             }
 
@@ -71,15 +92,14 @@ namespace AtividadeScrumLetsCode.Services
             string adicionarNovoGame;
             var jogosSalvos = _gameRepository.GetAll();
 
-            Console.Clear();
-            Console.WriteLine("Jogos Disponíveis: ");
-            foreach (var jogo in jogosSalvos)
-            {
-                Console.WriteLine($"- {jogo}");
-            }
-
             do
             {
+                Console.Clear();
+                Console.WriteLine("Jogos Disponíveis: ");
+                foreach (var jogo in jogosSalvos)
+                {
+                    Console.WriteLine($"- {jogo}");
+                }
                 Console.Write("\nDigite o nome do Jogo: ");
                 var nomeDoJogo = Console.ReadLine();
                 var jogoSalvo = jogosSalvos.SingleOrDefault(x => nomeDoJogo.Equals(x.NomeJogo, StringComparison.InvariantCultureIgnoreCase));
@@ -88,7 +108,8 @@ namespace AtividadeScrumLetsCode.Services
                 {
                     player.AddGame(jogoSalvo);
                     Console.WriteLine("Jogo Adicionado com sucesso!");
-                    Thread.Sleep(1000);
+                    Thread.Sleep(2000);
+                    Console.Clear();
                 }
                 else
                 {
@@ -98,11 +119,6 @@ namespace AtividadeScrumLetsCode.Services
                 Console.Write("Deseja inserir mais um jogo na sua lista de interesse? (s/n) bobão: ");
                 adicionarNovoGame = Console.ReadLine();
                 Console.Clear();
-                Console.WriteLine("Jogos Disponíveis: ");
-                foreach (var jogo in jogosSalvos)
-                {
-                    Console.WriteLine($"- {jogo}");
-                }
             }
             while (adicionarNovoGame.Equals("s", StringComparison.InvariantCultureIgnoreCase));
         }

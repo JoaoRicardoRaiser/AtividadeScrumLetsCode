@@ -17,35 +17,54 @@ namespace AtividadeScrumLetsCode.Services
         
         public void CadastrarJogo()
         {
-            Console.Write("Nome do Jogo: ");
-            var nomeJogo = Console.ReadLine();
-
-            while (!EhNomeValido(nomeJogo))
+            try
             {
+                Console.Clear();
+                Console.WriteLine("Cadastro de Game\n");
+
                 Console.Write("Nome do Jogo: ");
-                nomeJogo = Console.ReadLine();
-            }
+                var nomeJogo = Console.ReadLine();
 
-            Console.Write("Quantidade Mínima de Jogadores: ");
-            var quatidadeMinima = Console.ReadLine();
-            while (!EhQuantidadeValida(quatidadeMinima))
-            {
+                while (!EhNomeValido(nomeJogo))
+                {
+                    Console.Write("Nome do Jogo: ");
+                    nomeJogo = Console.ReadLine();
+                }
+
                 Console.Write("Quantidade Mínima de Jogadores: ");
-                quatidadeMinima = Console.ReadLine();
-            }
+                var quatidadeMinima = Console.ReadLine();
+                while (!EhQuantidadeValida(quatidadeMinima))
+                {
+                    Console.Write("Quantidade Mínima de Jogadores: ");
+                    quatidadeMinima = Console.ReadLine();
+                }
 
-
-            Console.Write("Quantidade Máxima de Jogadores: ");
-            var quatidadeMaxima = Console.ReadLine();
-            while (!EhQuantidadeValida(quatidadeMaxima))
-            {
                 Console.Write("Quantidade Máxima de Jogadores: ");
-                quatidadeMaxima = Console.ReadLine();
+                var quatidadeMaxima = Console.ReadLine();
+                while (!EhQuantidadeValida(quatidadeMaxima))
+                {
+                    Console.Write("Quantidade Máxima de Jogadores: ");
+                    quatidadeMaxima = Console.ReadLine();
+                }
+
+                var game = new Game(nomeJogo, Convert.ToInt32(quatidadeMinima), Convert.ToInt32(quatidadeMaxima));
+                _gameRepository.Create(game);
+
+                Console.Clear();
+                Console.WriteLine($"Game com nome: '{game.NomeJogo}' criado com sucesso!");
+                Thread.Sleep(2000);
             }
-
-            var player = new Game(nomeJogo, Convert.ToInt32(quatidadeMinima), Convert.ToInt32(quatidadeMaxima));
-            _gameRepository.Create(player);
-
+            catch(Exception e)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Clear();
+                Console.WriteLine($"\nOcorreu um erro ao cadastrar game...\n{e}\n");
+                Console.WriteLine($"Nenhuma mudança será realizada na base de dados.\n");
+                Console.ResetColor();
+                Console.WriteLine($"Aperte qualquer botão para continuar...");
+                Console.Read();
+            }
+            
             MenuService.Iniciar();
         }
 
@@ -55,6 +74,7 @@ namespace AtividadeScrumLetsCode.Services
             {
                 Console.WriteLine("o nome do jogo não pode ser vazio bobão...");
                 Thread.Sleep(2000);
+                Console.Clear();
                 return false;
             }
 
@@ -64,6 +84,7 @@ namespace AtividadeScrumLetsCode.Services
             {
                 Console.WriteLine("Já existente jogo com esse nome bobão, coloca outro ai...");
                 Thread.Sleep(2000);
+                Console.Clear();
                 return false;
             }
 
@@ -78,6 +99,7 @@ namespace AtividadeScrumLetsCode.Services
             {
                 Console.WriteLine("Quantidade inválida bobão, digite novamente...");
                 Thread.Sleep(2000);
+                Console.Clear();
                 return false;
             }
 
