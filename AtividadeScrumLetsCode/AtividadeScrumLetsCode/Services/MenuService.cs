@@ -15,9 +15,8 @@ namespace AtividadeScrumLetsCode.Services
             Console.WriteLine("Seja bem vindo à LetsCode Player\n");
 
             Console.WriteLine("Digite a opção que você deseja\n");
-            Console.WriteLine("1 - Cadastro do player");
-            Console.WriteLine("2 - Cadastro dos Jogos");
-            Console.WriteLine("3 - Login");
+            Console.WriteLine("1 - Cadastrar Player");
+            Console.WriteLine("2 - Cadastrar Jogo");
             Console.WriteLine("0 - Sair\n");
             Console.Write("Opção: ");
 

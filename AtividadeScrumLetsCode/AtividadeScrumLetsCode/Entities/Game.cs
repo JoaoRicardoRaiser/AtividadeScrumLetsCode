@@ -21,5 +21,10 @@
             MinimoJogadores = minimoJogadores;
             MaximoJogadores = maximoJogadores;
         }
+
+        public override string ToString()
+        {
+            return NomeJogo.ToString();
+        }
     }
 }

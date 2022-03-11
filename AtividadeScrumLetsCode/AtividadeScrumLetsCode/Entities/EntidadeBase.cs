@@ -1,4 +1,9 @@
-﻿namespace AtividadeScrumLetsCode.Entities
+﻿using System;
+
+namespace AtividadeScrumLetsCode.Entities
 {
-    public class EntidadeBase{}
+    public class EntidadeBase
+    {
+        public Guid Id { get; set; } = Guid.NewGuid();
+    }
 }

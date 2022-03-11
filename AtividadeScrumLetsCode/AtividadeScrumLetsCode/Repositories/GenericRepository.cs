@@ -1,6 +1,7 @@
 ﻿using AtividadeScrumLetsCode.Entities;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text.Json;
 
 namespace AtividadeScrumLetsCode.Repositories
@@ -23,6 +24,11 @@ namespace AtividadeScrumLetsCode.Repositories
         protected void UpdateDatabase(List<T> database)
         {
             File.WriteAllTextAsync(Host, JsonSerializer.Serialize(database));
+        }
+
+        public List<T> GetAll()
+        {
+            return GetDatabase().ToList();
         }
     }
 }
