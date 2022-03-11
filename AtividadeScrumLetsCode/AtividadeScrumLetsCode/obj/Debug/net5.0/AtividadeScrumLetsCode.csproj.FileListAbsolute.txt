@@ -1,0 +1,16 @@
+C:\Users\joao.raiser\Desktop\Pessoal\Programacao\C#\AtividadeScrumLetsCode\AtividadeScrumLetsCode\AtividadeScrumLetsCode\obj\Debug\net5.0\AtividadeScrumLetsCode.csprojAssemblyReference.cache
+C:\Users\joao.raiser\Desktop\Pessoal\Programacao\C#\AtividadeScrumLetsCode\AtividadeScrumLetsCode\AtividadeScrumLetsCode\obj\Debug\net5.0\AtividadeScrumLetsCode.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\joao.raiser\Desktop\Pessoal\Programacao\C#\AtividadeScrumLetsCode\AtividadeScrumLetsCode\AtividadeScrumLetsCode\obj\Debug\net5.0\AtividadeScrumLetsCode.AssemblyInfoInputs.cache
+C:\Users\joao.raiser\Desktop\Pessoal\Programacao\C#\AtividadeScrumLetsCode\AtividadeScrumLetsCode\AtividadeScrumLetsCode\obj\Debug\net5.0\AtividadeScrumLetsCode.AssemblyInfo.cs
+C:\Users\joao.raiser\Desktop\Pessoal\Programacao\C#\AtividadeScrumLetsCode\AtividadeScrumLetsCode\AtividadeScrumLetsCode\obj\Debug\net5.0\AtividadeScrumLetsCode.csproj.CoreCompileInputs.cache
+C:\Users\joao.raiser\Desktop\Pessoal\Programacao\C#\AtividadeScrumLetsCode\AtividadeScrumLetsCode\AtividadeScrumLetsCode\bin\Debug\net5.0\AtividadeScrumLetsCode.exe
+C:\Users\joao.raiser\Desktop\Pessoal\Programacao\C#\AtividadeScrumLetsCode\AtividadeScrumLetsCode\AtividadeScrumLetsCode\bin\Debug\net5.0\AtividadeScrumLetsCode.deps.json
+C:\Users\joao.raiser\Desktop\Pessoal\Programacao\C#\AtividadeScrumLetsCode\AtividadeScrumLetsCode\AtividadeScrumLetsCode\bin\Debug\net5.0\AtividadeScrumLetsCode.runtimeconfig.json
+C:\Users\joao.raiser\Desktop\Pessoal\Programacao\C#\AtividadeScrumLetsCode\AtividadeScrumLetsCode\AtividadeScrumLetsCode\bin\Debug\net5.0\AtividadeScrumLetsCode.runtimeconfig.dev.json
+C:\Users\joao.raiser\Desktop\Pessoal\Programacao\C#\AtividadeScrumLetsCode\AtividadeScrumLetsCode\AtividadeScrumLetsCode\bin\Debug\net5.0\AtividadeScrumLetsCode.dll
+C:\Users\joao.raiser\Desktop\Pessoal\Programacao\C#\AtividadeScrumLetsCode\AtividadeScrumLetsCode\AtividadeScrumLetsCode\bin\Debug\net5.0\ref\AtividadeScrumLetsCode.dll
+C:\Users\joao.raiser\Desktop\Pessoal\Programacao\C#\AtividadeScrumLetsCode\AtividadeScrumLetsCode\AtividadeScrumLetsCode\bin\Debug\net5.0\AtividadeScrumLetsCode.pdb
+C:\Users\joao.raiser\Desktop\Pessoal\Programacao\C#\AtividadeScrumLetsCode\AtividadeScrumLetsCode\AtividadeScrumLetsCode\obj\Debug\net5.0\AtividadeScrumLetsCode.dll
+C:\Users\joao.raiser\Desktop\Pessoal\Programacao\C#\AtividadeScrumLetsCode\AtividadeScrumLetsCode\AtividadeScrumLetsCode\obj\Debug\net5.0\ref\AtividadeScrumLetsCode.dll
+C:\Users\joao.raiser\Desktop\Pessoal\Programacao\C#\AtividadeScrumLetsCode\AtividadeScrumLetsCode\AtividadeScrumLetsCode\obj\Debug\net5.0\AtividadeScrumLetsCode.pdb
+C:\Users\joao.raiser\Desktop\Pessoal\Programacao\C#\AtividadeScrumLetsCode\AtividadeScrumLetsCode\AtividadeScrumLetsCode\obj\Debug\net5.0\AtividadeScrumLetsCode.genruntimeconfig.cache
