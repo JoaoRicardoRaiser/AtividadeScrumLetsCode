@@ -23,7 +23,5 @@ namespace AtividadeScrumLetsCode.Entities
         {
             Jogos.Add(game);
         }
-
-
     }
 }

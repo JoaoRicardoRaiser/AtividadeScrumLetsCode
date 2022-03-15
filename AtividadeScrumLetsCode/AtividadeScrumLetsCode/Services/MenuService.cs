@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AtividadeScrumLetsCode.Repositories;
+using System;
 using System.Threading;
 
 namespace AtividadeScrumLetsCode.Services
@@ -25,7 +26,11 @@ namespace AtividadeScrumLetsCode.Services
             switch (Console.ReadLine())
             {
                 case "1":
-                    playerService.CadastrarPlayer();
+                    var existemJogos = gameService.ExistemJogos();
+                    if (existemJogos)
+                        playerService.CadastrarPlayer();
+                    else
+                        Iniciar();
                     break;
 
                 case "2":
@@ -46,8 +51,6 @@ namespace AtividadeScrumLetsCode.Services
                     Iniciar();
                     break;
             }
-
-            
         }
     }
 }
