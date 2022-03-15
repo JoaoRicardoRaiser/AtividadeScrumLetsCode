@@ -33,7 +33,7 @@ namespace AtividadeScrumLetsCode.Services
                     break;
 
                 case "3":
-                    salaService.CriarSala();
+                    salaService.Menu();
                     break;
 
                 case "0":

@@ -1,4 +1,5 @@
 ﻿using AtividadeScrumLetsCode.Entities;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
@@ -23,6 +24,12 @@ namespace AtividadeScrumLetsCode.Repositories
             var database = GetDatabase();
             var playerSalvo = database.SingleOrDefault(x => x.Nickname.Equals(nickname));
             return playerSalvo;
+        }
+
+        public List<Player> GetByGame(Game game)
+        {
+            var database = GetDatabase();
+            return database.Where(x => x.Jogos.Select(x => x.NomeJogo).Contains(game.NomeJogo)).ToList();
         }
     }
 }

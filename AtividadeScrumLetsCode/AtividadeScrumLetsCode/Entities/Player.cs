@@ -5,7 +5,7 @@ namespace AtividadeScrumLetsCode.Entities
     public class Player: EntidadeBase
     {
         public string Nickname { get; set; }
-        public List<Game> Jogos { get; set; }
+        public List<Game> Jogos { get; set; } = new();
 
         protected Player(){}
 

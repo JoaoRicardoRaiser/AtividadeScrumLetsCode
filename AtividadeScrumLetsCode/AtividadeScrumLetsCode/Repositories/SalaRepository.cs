@@ -1,5 +1,7 @@
 ﻿using AtividadeScrumLetsCode.Entities;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace AtividadeScrumLetsCode.Repositories
 {
@@ -14,6 +16,22 @@ namespace AtividadeScrumLetsCode.Repositories
         public void Create(Sala sala)
         {
             var database = GetDatabase();
+            database.Add(sala);
+            UpdateDatabase(database);
+        }
+
+        public List<Sala> GetByGame(Game game)
+        {
+            var database = GetDatabase();
+
+            return database.Where(x => x.Jogo.NomeJogo == game.NomeJogo).ToList();
+        }
+
+        public void Update(Sala sala)
+        {
+            var database = GetDatabase();
+            var salaSalva = database.SingleOrDefault(x => x.Id == sala.Id);
+            database.Remove(salaSalva);
             database.Add(sala);
             UpdateDatabase(database);
         }

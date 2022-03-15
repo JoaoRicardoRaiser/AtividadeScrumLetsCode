@@ -4,7 +4,6 @@ using System;
 using System.Linq;
 using System.Threading;
 using AtividadeScrumLetsCode.Utils;
-using System.Collections.Generic;
 
 namespace AtividadeScrumLetsCode.Services
 {
