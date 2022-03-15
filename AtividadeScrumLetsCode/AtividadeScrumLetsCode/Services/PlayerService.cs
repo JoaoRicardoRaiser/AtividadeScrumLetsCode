@@ -3,15 +3,16 @@ using AtividadeScrumLetsCode.Repositories;
 using System;
 using System.Linq;
 using System.Threading;
+using AtividadeScrumLetsCode.Utils;
+using System.Collections.Generic;
 
 namespace AtividadeScrumLetsCode.Services
 {
     public class PlayerService
     {
-
         private PlayerRepository _playerRepository { get; set; }
         private GameRepository _gameRepository { get; set; }
-        
+
         public PlayerService()
         {
             _playerRepository = new PlayerRepository();
@@ -96,10 +97,9 @@ namespace AtividadeScrumLetsCode.Services
             {
                 Console.Clear();
                 Console.WriteLine("Jogos Disponíveis: ");
-                foreach (var jogo in jogosSalvos)
-                {
-                    Console.WriteLine($"- {jogo}");
-                }
+                
+                Utilidades.MostrarJogos(jogosSalvos);
+
                 Console.Write("\nDigite o nome do Jogo: ");
                 var nomeDoJogo = Console.ReadLine();
                 var jogoSalvo = jogosSalvos.SingleOrDefault(x => nomeDoJogo.Equals(x.NomeJogo, StringComparison.InvariantCultureIgnoreCase));
@@ -123,5 +123,4 @@ namespace AtividadeScrumLetsCode.Services
             while (adicionarNovoGame.Equals("s", StringComparison.InvariantCultureIgnoreCase));
         }
     }
-
 }

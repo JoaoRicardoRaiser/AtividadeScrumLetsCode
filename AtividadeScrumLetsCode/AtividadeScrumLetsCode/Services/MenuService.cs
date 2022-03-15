@@ -9,6 +9,7 @@ namespace AtividadeScrumLetsCode.Services
         {
             var playerService = new PlayerService();
             var gameService = new GameService();
+            var salaService = new SalaService();
 
             Console.Title = "Lets Code Player";
             Console.Clear();
@@ -17,6 +18,7 @@ namespace AtividadeScrumLetsCode.Services
             Console.WriteLine("Digite a opção que você deseja\n");
             Console.WriteLine("1 - Cadastrar Player");
             Console.WriteLine("2 - Cadastrar Jogo");
+            Console.WriteLine("3 - Iniciar Partida");
             Console.WriteLine("0 - Sair\n");
             Console.Write("Opção: ");
 
@@ -30,9 +32,9 @@ namespace AtividadeScrumLetsCode.Services
                     gameService.CadastrarJogo();
                     break;
 
-                //case "3":
-                //    PlayerService.Login();
-                //    break;
+                case "3":
+                    salaService.CriarSala();
+                    break;
 
                 case "0":
                     Environment.Exit(0);
