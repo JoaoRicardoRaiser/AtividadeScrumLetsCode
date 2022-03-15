@@ -68,11 +68,24 @@ namespace AtividadeScrumLetsCode.Services
             MenuService.Iniciar();
         }
 
+        public bool ExistemJogos()
+        {
+            var jogosSalvos = _gameRepository.GetAll();
+            if (jogosSalvos.Count == 0)
+            {
+                Console.WriteLine("\nAntes de cadastrar um Player cadastre um Jogo!\n");
+                Thread.Sleep(3000);
+
+                return false;
+            }
+            return true;
+        }
+
         private bool EhNomeValido(string nomeJogo)
         {
             if (string.IsNullOrWhiteSpace(nomeJogo))
             {
-                Console.WriteLine("o nome do jogo não pode ser vazio bobão...");
+                Console.WriteLine("\nO nome do jogo não pode ser vazio bobão...");
                 Thread.Sleep(2000);
                 Console.Clear();
                 return false;
@@ -82,7 +95,7 @@ namespace AtividadeScrumLetsCode.Services
 
             if (gameSalvo != null)
             {
-                Console.WriteLine("Já existente jogo com esse nome bobão, coloca outro ai...");
+                Console.WriteLine("\nJá existente jogo com esse nome bobão, coloca outro ai...");
                 Thread.Sleep(2000);
                 Console.Clear();
                 return false;
@@ -97,7 +110,7 @@ namespace AtividadeScrumLetsCode.Services
 
             if (quantidadeOut == 0 || !podeConverter)
             {
-                Console.WriteLine("Quantidade inválida bobão, digite novamente...");
+                Console.WriteLine("\nQuantidade inválida bobão, digite novamente...");
                 Thread.Sleep(2000);
                 Console.Clear();
                 return false;

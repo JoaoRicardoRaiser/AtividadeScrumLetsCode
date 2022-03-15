@@ -3,6 +3,7 @@ using AtividadeScrumLetsCode.Repositories;
 using System;
 using System.Linq;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace AtividadeScrumLetsCode.Services
 {
@@ -29,17 +30,14 @@ namespace AtividadeScrumLetsCode.Services
 
                 while (!EhNickValido(nick))
                 {
+                    Console.WriteLine("Cadastro de Player\n");
                     Console.Write("Nickname: ");
                     nick = Console.ReadLine();
                 }
 
                 var player = new Player(nick);
 
-                Console.Write("Quer adicionar algum jogo de interesse? (s/n) bobão: ");
-                var deveAdicionarGame = Console.ReadLine();
-
-                if (deveAdicionarGame.Equals("s", StringComparison.InvariantCultureIgnoreCase))
-                    AdicionarGames(player);
+                AdicionarGames(player);
 
                 _playerRepository.Create(player);
                 Console.Clear();
@@ -68,7 +66,7 @@ namespace AtividadeScrumLetsCode.Services
         {
             if (string.IsNullOrWhiteSpace(nickname))
             {
-                Console.WriteLine("Nickname não pode ser vazio bobão...");
+                Console.WriteLine("\nNickname não pode ser vazio bobão...");
                 Thread.Sleep(2000);
                 Console.Clear();
                 return false;
@@ -78,8 +76,9 @@ namespace AtividadeScrumLetsCode.Services
 
             if(nicknameSalvo != null)
             {
-                Console.WriteLine("Já existente jogador com esse nickname bobão, coloca outro ai...");
+                Console.WriteLine("\nJá existe jogador com esse nickname bobão, coloca outro ai...");
                 Thread.Sleep(2000);
+                Console.Clear();
                 return false;
             }
 
@@ -88,37 +87,39 @@ namespace AtividadeScrumLetsCode.Services
 
         private void AdicionarGames(Player player)
         {
-
-            string adicionarNovoGame;
+            string adicionarNovoGame = "s";
             var jogosSalvos = _gameRepository.GetAll();
 
             do
             {
                 Console.Clear();
+                Console.WriteLine("Adicione um jogo a sua lista para continuar. \n");
+
                 Console.WriteLine("Jogos Disponíveis: ");
                 foreach (var jogo in jogosSalvos)
                 {
                     Console.WriteLine($"- {jogo}");
                 }
-                Console.Write("\nDigite o nome do Jogo: ");
+                Console.Write("\nDigite o nome do Jogo para adicionar na sua lista: ");
                 var nomeDoJogo = Console.ReadLine();
                 var jogoSalvo = jogosSalvos.SingleOrDefault(x => nomeDoJogo.Equals(x.NomeJogo, StringComparison.InvariantCultureIgnoreCase));
 
                 if (jogoSalvo != null)
                 {
                     player.AddGame(jogoSalvo);
-                    Console.WriteLine("Jogo Adicionado com sucesso!");
+                    Console.WriteLine("\nJogo Adicionado com sucesso!");
                     Thread.Sleep(2000);
+                    Console.Clear();
+
+                    Console.Write("Deseja inserir mais um jogo na sua lista de interesse? (s/n) bobão: ");
+                    adicionarNovoGame = Console.ReadLine();
                     Console.Clear();
                 }
                 else
                 {
-                    Console.WriteLine("Jogo não existe... Olha a lista acima, bobão.\n");
+                    Console.WriteLine("\nJogo não existe... Olha a lista acima, bobão.\n");
+                    Thread.Sleep(2000);
                 }
-
-                Console.Write("Deseja inserir mais um jogo na sua lista de interesse? (s/n) bobão: ");
-                adicionarNovoGame = Console.ReadLine();
-                Console.Clear();
             }
             while (adicionarNovoGame.Equals("s", StringComparison.InvariantCultureIgnoreCase));
         }
